@@ -35,3 +35,9 @@ target 'drivemobile' do
   pod 'Permission-Reminders', :path => "#{permissions_path}/Reminders"
   pod 'Permission-StoreKit', :path => "#{permissions_path}/StoreKit"
 end
+
+post_install do |installer|
+  installer.pods_project.build_configurations.each do |config|
+    config.build_settings["EXCLUDED_ARCHS[sdk=iphonesimulator*]"] = "arm64"
+  end
+end
