@@ -84,9 +84,6 @@ function Register(props: Reducers): JSX.Element {
   }
 
   const handleOnPress = async () => {
-    if (!recaptchaToken) {
-      return Alert.alert('Invalid captcha token, please try again');
-    }
     if (!isValidPassword) { return Alert.alert('', 'Please make sure your password contains at least six characters, a number, and a letter') }
     if (password !== confirmPassword) { return Alert.alert('', 'Please make sure your passwords match') }
     if (registerButtonClicked || isLoading) { return }
